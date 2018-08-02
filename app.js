@@ -3,13 +3,16 @@ const app = express()
 const port = 9000
 const cors = require('cors')
 const bodyParser = require('body-parser')
+const query = require('./querry/profile') 
 
 app.use(cors())
 app.use(bodyParser.json())
 
 
 app.get('/',(req,res,next) => {
-    res.send('🦖')
+    query.listAllProfiles().then(data =>{
+        res.json({data})
+      })
 })
 
 
