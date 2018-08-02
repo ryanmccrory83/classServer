@@ -33,6 +33,14 @@ app.put('/:id', (req,res,next) => {
     })
 })
 
+app.delete('/:id', (req,res,next) => {
+    query.deleteOneProfile(req.params.id).then(data => {
+        res.send({
+            message: `your entry with the id of ${data} was deleted`
+        })
+    })
+})
+
 app.listen(port,() =>{
   console.log(`listening on port ${port}`)  
 })

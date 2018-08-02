@@ -24,9 +24,16 @@ updateOneProfile = (id,newPost) => {
         .where('id',id)
 
 }
+deleteOneProfile = (id) => {
+    return pg('profiles')
+        .where('id',id)
+        .del()
+}
 module.exports = { 
     listAllProfiles,
     listOneProfile,
     createOneProfile,
-    updateOneProfile
+    updateOneProfile,
+    deleteOneProfile
+
 }
