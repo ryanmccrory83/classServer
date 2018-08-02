@@ -12,7 +12,13 @@ listOneProfile = (id) => {
         .from('profiles')
         .where('id',id)
 }
+createOneProfile = (post) => {
+    return pg('profiles')
+        .returning(['id','first','last'])
+        .insert(post)
+}
 module.exports = { 
     listAllProfiles,
-    listOneProfile
+    listOneProfile,
+    createOneProfile
 }

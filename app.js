@@ -21,6 +21,11 @@ app.get('/:id', (req,res,next) => {
     })
 })
 
+app.post('/',(req,res,next) => {
+    query.createOneProfile(req.body).then(data => {
+        res.json({data})
+    })
+})
 
 app.listen(port,() =>{
   console.log(`listening on port ${port}`)  
