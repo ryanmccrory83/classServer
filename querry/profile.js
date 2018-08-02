@@ -6,6 +6,13 @@ listAllProfiles = () => {
         .from('profiles')
         .orderBy('id', 'desc')
 }
+listOneProfile = (id) => {
+    return pg('class_directory')
+        .select()
+        .from('profiles')
+        .where('id',id)
+}
 module.exports = { 
-    listAllProfiles
+    listAllProfiles,
+    listOneProfile
 }

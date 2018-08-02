@@ -10,9 +10,15 @@ app.use(bodyParser.json())
 
 
 app.get('/',(req,res,next) => {
-    query.listAllProfiles().then(data =>{
+    query.listAllProfiles().then(data => {
         res.json({data})
       })
+})
+
+app.get('/:id', (req,res,next) => {
+    query.listOneProfile(req.params.id).then(data => {
+        res.json({data})
+    })
 })
 
 
