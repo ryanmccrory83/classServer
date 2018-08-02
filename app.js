@@ -27,6 +27,12 @@ app.post('/',(req,res,next) => {
     })
 })
 
+app.put('/:id', (req,res,next) => {
+    query.updateOneProfile(req.params.id,req.body).then(data => {
+        res.json({data})
+    })
+})
+
 app.listen(port,() =>{
   console.log(`listening on port ${port}`)  
 })

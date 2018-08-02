@@ -17,8 +17,16 @@ createOneProfile = (post) => {
         .returning(['id','first','last'])
         .insert(post)
 }
+updateOneProfile = (id,newPost) => {
+    return pg('profiles')
+        .returning(['id','first','last'])
+        .update(newPost)
+        .where('id',id)
+
+}
 module.exports = { 
     listAllProfiles,
     listOneProfile,
-    createOneProfile
+    createOneProfile,
+    updateOneProfile
 }
