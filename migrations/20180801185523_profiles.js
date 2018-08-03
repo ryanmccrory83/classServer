@@ -2,10 +2,12 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('profiles',(table) =>{
         table.increments()
-        table.string('first')
-        table.string('last')
-        table.string('img')
-        table.string('homeTown')
+        table.string('firstName')
+        table.string('lastName')
+        table.string('photo')
+        table.string('hometownLat')
+        table.string('hometownLong')
+        table.string('prevOccupation')
   })
 };
 

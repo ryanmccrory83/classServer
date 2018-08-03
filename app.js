@@ -4,8 +4,12 @@ const port = 9000
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const query = require('./querry/profile') 
+const favicon = require('serve-favicon')
+const path = require('path')
+
 
 app.use(cors())
+app.use(favicon(path.join(__dirname, 'public', 'favicon.png')))
 app.use(bodyParser.json())
 
 
@@ -14,6 +18,7 @@ app.get('/',(req,res,next) => {
         res.json({data})
       })
 })
+// app.get('/favicon.ico', (req, res) => res.status(204))
 
 app.get('/:id', (req,res,next) => {
     query.listOneProfile(req.params.id).then(data => {

@@ -14,12 +14,12 @@ listOneProfile = (id) => {
 }
 createOneProfile = (post) => {
     return pg('profiles')
-        .returning(['id','first','last'])
+        .returning(['id','firstName','lastName'])
         .insert(post)
 }
 updateOneProfile = (id,newPost) => {
     return pg('profiles')
-        .returning(['id','first','last'])
+        .returning(['id','firstName','lastName'])
         .update(newPost)
         .where('id',id)
 
